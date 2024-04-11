@@ -1,8 +1,8 @@
 {
-  "id": "content_index",
+  "id": "experience",
   "type": "SharedSlice",
-  "name": "ContentIndex",
-  "description": "ContentIndex",
+  "name": "Experience",
+  "description": "Experience",
   "variations": [
     {
       "id": "default",
@@ -18,16 +18,28 @@
             "label": "Heading",
             "placeholder": ""
           }
-        },
-        "content_type": {
-          "type": "Select",
+        }
+      },
+      "items": {
+        "title": {
+          "type": "Text",
           "config": {
-            "label": "Content Type",
-            "placeholder": "",
-            "options": [
-              "Blog",
-              "Project"
-            ]
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "time_period": {
+          "type": "Text",
+          "config": {
+            "label": "Time Period",
+            "placeholder": ""
+          }
+        },
+        "institution": {
+          "type": "Text",
+          "config": {
+            "label": "Institution",
+            "placeholder": ""
           }
         },
         "description": {
@@ -38,24 +50,8 @@
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
-        },
-        "fallback_item_image": {
-          "type": "Image",
-          "config": {
-            "label": "Fallback Item Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "view_more_text": {
-          "type": "Text",
-          "config": {
-            "label": "View More Text",
-            "placeholder": "Read More..."
-          }
         }
-      },
-      "items": {}
+      }
     }
   ]
 }

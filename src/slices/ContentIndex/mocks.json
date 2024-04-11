@@ -24,11 +24,6 @@
 					}
 				]
 			},
-			"view_more_text": {
-				"__TYPE__": "FieldContent",
-				"value": "clay",
-				"type": "Text"
-			},
 			"fallback_item_image": {
 				"origin": {
 					"id": "main",
@@ -51,6 +46,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"view_more_text": {
+				"__TYPE__": "FieldContent",
+				"value": "flies",
+				"type": "Text"
 			}
 		},
 		"items": []

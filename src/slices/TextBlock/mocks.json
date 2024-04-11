@@ -2,7 +2,19 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Amet fugiat magna minim magna ipsum minim officia mollit et. Laborum duis mollit nisi nisi aliquip consectetur ea anim laboris id cillum excepteur laboris exercitation. Ad mollit aute reprehenderit consequat qui id do magna in labore qui incididunt enim cillum aute."
+						}
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]

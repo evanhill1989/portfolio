@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "making",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "skin",
+							"type": "Text"
+						}
+					],
+					[
+						"time_period",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "eaten",
+							"type": "Text"
+						}
+					],
+					[
+						"institution",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "circle",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Id et officia veniam qui ipsum ullamco ea minim in laborum in nisi magna nostrud eiusmod. Lorem veniam excepteur incididunt tempor deserunt ipsum pariatur deserunt. Proident aute deserunt pariatur."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
