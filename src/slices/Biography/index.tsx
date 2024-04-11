@@ -4,7 +4,7 @@ import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Avatar from "./Avatar";
+import Avatar from "../../components/Avatar";
 
 /**
  * Props for `Biography`.
@@ -20,7 +20,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr, 1fr]">
+      <div className="md:grid-cols-[2fr, 1fr] grid gap-x-8 gap-y-6">
         <Heading as="h1" size="xl" className="col-start-1">
           {slice.primary.heading}
         </Heading>
