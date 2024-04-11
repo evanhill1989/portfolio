@@ -122,57 +122,56 @@ export default function ContentList({
     setCurrentItem(null);
   };
 
+  const handleRef = (el: HTMLLIElement | null, index: number) => {
+    itemsRef.current[index] = el;
+  };
+
   return (
-    <div>
+    <>
       <ul
         ref={component}
         className="grid border-b border-b-slate-100"
         onMouseLeave={onMouseLeave}
       >
-        {items.map((item, index) => (
-          <>
-            {isFilled.keyText(item.data.title) && (
-              <li
-                key={index}
-                className="list-item opacity-0 "
-                onMouseEnter={() => onMouseEnter(index)}
-                ref={(el) => (itemsRef.current[index] = el)}
-              >
-                <Link
-                  href={`/${urlPrefix}/${item.uid}`}
-                  className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
-                  aria-label={item.data.title}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold">
-                      {item.data.title}
+        {items.map((post, index) => (
+          <li
+            key={index}
+            ref={(el) => handleRef(el, index)}
+            onMouseEnter={() => onMouseEnter(index)}
+            className="list-item opacity-0"
+          >
+            <a
+              href={`${urlPrefix}/${post.uid}`}
+              className="flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row "
+              aria-label={post.data.title || ""}
+            >
+              <div className="flex flex-col">
+                <span className="text-3xl font-bold">{post.data.title}</span>
+                <div className="flex gap-3 text-yellow-400">
+                  {post.tags.map((tag, index) => (
+                    <span key={index} className="text-lg font-bold">
+                      {tag}
                     </span>
-                    <div className="flex gap-3 text-lg font-bold text-yellow-400">
-                      {item.tags.map((tag, index) => (
-                        <span key={index}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
-                    {viewMoreText} Read More( hardcoded placeholder)
-                    <MdArrowOutward />
-                  </span>
-                </Link>
-              </li>
-            )}
-          </>
+                  ))}
+                </div>
+              </div>
+              <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
+                {viewMoreText} <MdArrowOutward />
+              </span>
+            </a>
+          </li>
         ))}
+
+        {/* Hover element */}
+        <div
+          className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
+          style={{
+            backgroundImage:
+              currentItem !== null ? `url(${contentImages[currentItem]})` : "",
+          }}
+          ref={revealRef}
+        ></div>
       </ul>
-      {/* Hover Element */}
-      <div
-        className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
-        style={{
-          backgroundImage:
-            currentItem !== null ? `url(${contentImages[currentItem]})` : "",
-        }}
-        ref={revealRef}
-      ></div>
-    </div>
+    </>
   );
 }
