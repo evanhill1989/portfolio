@@ -130,7 +130,7 @@ export default function ContentList({
     <>
       <ul
         ref={component}
-        className="grid border-b border-b-slate-100"
+        className="grid border-b border-b-slate-100 text-slate-800"
         onMouseLeave={onMouseLeave}
       >
         {items.map((post, index) => (
@@ -146,8 +146,10 @@ export default function ContentList({
               aria-label={post.data.title || ""}
             >
               <div className="flex flex-col">
-                <span className="text-3xl font-bold">{post.data.title}</span>
-                <div className="flex gap-3 text-yellow-400">
+                <span className="text-3xl font-bold text-slate-800">
+                  {post.data.title}
+                </span>
+                <div className="flex gap-3 text-orange-700">
                   {post.tags.map((tag, index) => (
                     <span key={index} className="text-lg font-bold">
                       {tag}

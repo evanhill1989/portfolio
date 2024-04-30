@@ -1,0 +1,41 @@
+Ultimately Langchain is a way to prevent specific AI model lock in.
+
+Yes, it provides a lot of functionality, but really it's all about agnosticism.
+
+This means you can switch to different models easily.
+
+This also means you can incorporate multiple models together in the same app.
+
+
+
+Embeddings - 
+Using vector databases. We have a DB that stores all of our context.
+We might have lots of context. It could be the entirety of War and Peace.
+For several reasons we can't or shouldn't send War and Peace to our AI along with our prompt and message history.
+
+A. It's simply too much data. OpenAI flat out won't accept it.
+B. OpenAI still will accept larger and larger context with each query, but the more you send the more it costs you.
+
+So we create our own vector DB that organizes War and Peace into related snippets ( Probably paragraphs would make sense .)
+
+Paragraphs that mention Prince Andrei Bolkonsky would likely have a relative grouping position (using 1,536 dimensions for positioning) closer to each other
+than paragraphs that do not mention him. Paragraphs that mention Andrei and his love Natasha would likely have even tighter relative positioning and so on.
+
+We set a limit of how many entries we want to send to our AI ahead of time for each prompt. Maybe 4 is a good number?
+ The center of the grouping is computed and the 4 entries closest to the center will be used as the context we send to our AI.
+
+Generating the Embeddings - 
+
+I'll probably use Cheerio, which just takes a url. I'm not really understanding the benefit or running the embeddings at compile time?
+
+Anyway at about 2:37 we're building out our astradb file. This is where my project went off the rails because i had to start using a 
+completely new API as the old one was deprecated. Unfortunately I hadn't paid enough attention to some of the medium range
+concepts that I needed to know to refit my app for the new api so there was no simple plug and play solution.
+
+*** One thing I'm not clear on is why we need to delete our db? Do we need new embeddings for each single prompt sent to openAI?
+at 2:43:30 the video talks about not needing to update embeddings just for the pages that have "changed", and instead we can just delete out the whole DB and recreate it.
+This leads me to believe that generate.ts is only used to compile the general context base, and doesn't do anything to pair the filtered context with the user prompt.
+He actually suggests a class that we could use from LC that just updates changed pages. Not sure why he doesn't explore this, and it would have solved my weird initial
+problem of not being able to write over an existing DB.
+
+May just have to learn Langchain basics -- https://js.langchain.com/docs/additional_resources/tutorials

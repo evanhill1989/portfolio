@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@layer base {
+  :root {
+     --color-primary: green;
+    --color-secondary: 222deg 80% 60%; 
+    
+  }
+} */
 
 .background-gradient {
   background: radial-gradient(
